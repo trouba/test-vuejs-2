@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const state = {
   all: []
 };
@@ -6,18 +8,15 @@ const getters = {};
 
 const actions = {
   getAllItems({ commit }) {
-    commit("setItems", [
-      {
-        id: 1,
-        name: "tata",
-        url: "www.tata.fr"
-      },
-      {
-        id: 2,
-        name: "toto",
-        url: "www.toto.fr"
-      }
-    ]);
+    const source = "https://reqres.in/api/users?page=1";
+
+    axios
+      .get(source)
+      .then(r => r.data.data)
+      .then(items => {
+        console.log(items);
+        commit("setItems", items);
+      });
   }
 };
 
