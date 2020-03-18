@@ -1,4 +1,4 @@
-import axios from "axios";
+import users from "../../api/users";
 
 const state = {
   all: []
@@ -8,15 +8,9 @@ const getters = {};
 
 const actions = {
   getAllItems({ commit }) {
-    const source = "https://reqres.in/api/users?page=1";
-
-    axios
-      .get(source)
-      .then(r => r.data.data)
-      .then(items => {
-        console.log(items);
-        commit("setItems", items);
-      });
+    users.getUsers().then(users => {
+      commit("setItems", users);
+    });
   }
 };
 
