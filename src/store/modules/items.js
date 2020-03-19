@@ -1,22 +1,25 @@
 import users from "../../api/users";
 
 const state = {
-  all: []
+  all: [],
+  user: {}
 };
-
 const getters = {};
 
 const actions = {
-  getAllItems({ commit }) {
+  getAllUsers({ commit }) {
     users.getUsers().then(users => {
-      commit("setItems", users);
+      commit("setUsers", users);
     });
   }
 };
 
 const mutations = {
-  setItems(state, items) {
-    state.all = items;
+  setUsers(state, users) {
+    state.all = users;
+  },
+  setUser(state, user) {
+    state.user = user;
   }
 };
 
