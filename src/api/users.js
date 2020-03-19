@@ -12,8 +12,8 @@ export default {
     return axios
       .get(apiBaseUrl + sources.users)
       .then(r => r.data.data)
-      .then(items => {
-        return items;
+      .then(users => {
+        return users;
       });
   },
   getUser(id) {

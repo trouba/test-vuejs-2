@@ -1,35 +1,37 @@
 <template>
-  <div class="user-card">
-    <div class="user-card-information">
-      <div class="profil-picture-container">
-        <img
-          class="profil-picture"
-          v-bind:src="item.avatar"
-          alt="Card image cap"
-        />
+  <router-link :to="{ name: 'user', params: { id: user.id } }">
+    <div class="user-card">
+      <div class="user-card-information">
+        <div class="profil-picture-container">
+          <img
+            class="profil-picture"
+            v-bind:src="user.avatar"
+            alt="Card image cap"
+          />
+        </div>
+        <div class="user-information">
+          <h2 class="user-name">{{ username }}</h2>
+          <p class="user-email">{{ user.email }}</p>
+        </div>
       </div>
-      <div class="user-information">
-        <h2 class="user-name">{{ username }}</h2>
-        <p class="user-email">{{ item.email }}</p>
+      <div class="user-card-action">
+        <button>click here</button>
       </div>
     </div>
-    <div class="user-card-action">
-      <button>click here</button>
-    </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
 export default {
-  name: "ItemCard",
+  name: "UserCard",
   props: {
-    item: {
+    user: {
       type: Object
     }
   },
   computed: {
     username: function() {
-      return this.item.first_name + " " + this.item.last_name;
+      return this.user.first_name + " " + this.user.last_name;
     }
   }
 };

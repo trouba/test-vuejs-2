@@ -1,25 +1,25 @@
 <template>
   <div class="users-list">
-    <div v-for="item in items" :key="item.id" class="user-container">
-      <ItemCard :item="item" />
+    <div v-for="user in users" :key="user.id" class="user-container">
+      <UserCard :user="user" />
     </div>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
-import ItemCard from "./ItemCard";
+import UserCard from "./UserCard";
 
 export default {
   components: {
-    ItemCard
+    UserCard
   },
-  name: "ItemsList",
+  name: "UsersList",
   computed: mapState({
-    items: state => state.items.all
+    users: state => state.users.all
   }),
   created() {
-    this.$store.dispatch("items/getAllUsers");
+    this.$store.dispatch("users/getAllUsers");
   }
 };
 </script>
