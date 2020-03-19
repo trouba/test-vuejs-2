@@ -1,5 +1,6 @@
 <template>
   <div class="content">
+    <h1>🏆 Top contributors</h1>
     <UsersList />
   </div>
 </template>

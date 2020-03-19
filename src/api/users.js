@@ -4,7 +4,7 @@ const apiBaseUrl = "https://reqres.in/api/";
 
 const sources = {
   users: "users?page=1",
-  user: "user"
+  user: "users"
 };
 
 export default {

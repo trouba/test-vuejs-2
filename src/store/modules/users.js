@@ -1,9 +1,18 @@
 import users from "../../api/users";
 
+const getDefaultUserState = () => {
+  return {
+    first_name: "",
+    last_name: "",
+    avatar: "",
+    email: ""
+  };
+};
 const state = {
   all: [],
-  user: {}
+  current: getDefaultUserState()
 };
+
 const getters = {};
 
 const actions = {
@@ -11,6 +20,14 @@ const actions = {
     users.getUsers().then(users => {
       commit("setUsers", users);
     });
+  },
+  getUser({ commit }, payload) {
+    users.getUser(payload.id).then(user => {
+      commit("setUser", user);
+    });
+  },
+  resetUser({ commit }) {
+    commit("resetUser");
   }
 };
 
@@ -19,7 +36,10 @@ const mutations = {
     state.all = users;
   },
   setUser(state, user) {
-    state.user = user;
+    state.current = user;
+  },
+  resetUser(state) {
+    state.current = getDefaultUserState();
   }
 };
 

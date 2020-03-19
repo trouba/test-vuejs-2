@@ -1,5 +1,8 @@
 <template>
-  <router-link :to="{ name: 'user', params: { id: user.id } }">
+  <router-link
+    :to="{ name: 'user', params: { id: user.id } }"
+    class="user-card-link"
+  >
     <div class="user-card">
       <div class="user-card-information">
         <div class="profil-picture-container">
@@ -9,13 +12,10 @@
             alt="Card image cap"
           />
         </div>
-        <div class="user-information">
-          <h2 class="user-name">{{ username }}</h2>
-          <p class="user-email">{{ user.email }}</p>
-        </div>
+        <h2 class="user-name">{{ username }}</h2>
       </div>
       <div class="user-card-action">
-        <button>click here</button>
+        <button class="button">See profile 👉</button>
       </div>
     </div>
   </router-link>
@@ -38,6 +38,10 @@ export default {
 </script>
 
 <style scoped>
+.user-card-link {
+  text-decoration: none;
+}
+
 .user-card {
   display: flex;
   flex-direction: row;
@@ -49,17 +53,20 @@ export default {
 .user-card-information {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .profil-picture-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 30px;
+  width: 30px;
   margin-right: 15px;
 }
 
 .profil-picture {
-  height: 50px;
+  height: 30px;
   border-radius: 50%;
 }
 
@@ -69,11 +76,21 @@ export default {
   align-items: flex-start;
 }
 
-.user-name {
-  margin: 0;
+.user-name,
+.user-name:visited {
+  color: #24354a;
 }
 
 .user-email {
   margin: 0;
+}
+
+.button {
+  padding: 5px;
+  border: none;
+  font-size: 14px;
+  background-color: #0f9797;
+  cursor: pointer;
+  color: #fff;
 }
 </style>
