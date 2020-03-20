@@ -58,7 +58,6 @@ describe("mutations", () => {
 jest.mock("axios");
 
 axios.get.mockImplementation(url => {
-  console.log(url);
   switch (url) {
     case "https://reqres.in/api/users?page=1":
       return Promise.resolve({

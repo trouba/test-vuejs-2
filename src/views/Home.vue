@@ -19,5 +19,7 @@ export default {
 <style scoped>
 .content {
   padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 </style>

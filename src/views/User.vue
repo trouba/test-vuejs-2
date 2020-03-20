@@ -1,9 +1,7 @@
 <template>
   <div>
     <div class="back-navigation">
-      <router-link :to="{ name: 'home' }"
-        >👈 Back to contributors list</router-link
-      >
+      <router-link :to="{ name: 'home' }">👈 Back to contributors list</router-link>
     </div>
     <div class="content">
       <UserDetails :user="user" />
@@ -31,10 +29,14 @@ export default {
 <style scoped>
 .content {
   padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .back-navigation {
   text-align: left;
   padding: 15px 25px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 </style>
