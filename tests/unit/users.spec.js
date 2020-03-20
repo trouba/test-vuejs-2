@@ -1,6 +1,6 @@
 // mutations.spec.js
 import { expect } from "chai";
-import { mutations } from "./users";
+import { mutations } from "../../src/store/modules/users.js";
 
 // destructure assign `mutations`
 const { setUsers, setUser, resetUser } = mutations;
