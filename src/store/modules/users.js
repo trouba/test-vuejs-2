@@ -1,4 +1,4 @@
-import users from "../../api/users";
+import usersApi from "../../api/users";
 
 const getDefaultUserState = () => {
   return {
@@ -16,15 +16,13 @@ const state = {
 const getters = {};
 
 export const actions = {
-  getAllUsers({ commit }) {
-    users.getUsers().then(users => {
-      commit("setUsers", users);
-    });
+  async getAllUsers({ commit }) {
+    const users = await usersApi.getUsers();
+    commit("setUsers", users);
   },
-  getUser({ commit }, payload) {
-    users.getUser(payload.id).then(user => {
-      commit("setUser", user);
-    });
+  async getUser({ commit }, payload) {
+    const user = await usersApi.getUser(payload.id);
+    commit("setUser", user);
   },
   resetUser({ commit }) {
     commit("resetUser");
