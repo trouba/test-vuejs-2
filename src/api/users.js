@@ -14,6 +14,9 @@ export default {
       .then(r => r.data.data)
       .then(users => {
         return users;
+      })
+      .catch(function(error) {
+        console.log(error);
       });
   },
   getUser(id) {
@@ -22,6 +25,9 @@ export default {
       .then(r => r.data.data)
       .then(user => {
         return user;
+      })
+      .catch(function(error) {
+        console.log(error);
       });
   }
 };
