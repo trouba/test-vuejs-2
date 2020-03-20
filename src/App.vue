@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="header">Hello World</div>
+    <div class="header">WOW APP</div>
     <router-view />
   </div>
 </template>

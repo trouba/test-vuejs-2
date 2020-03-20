@@ -15,7 +15,7 @@ const state = {
 
 const getters = {};
 
-const actions = {
+export const actions = {
   getAllUsers({ commit }) {
     users.getUsers().then(users => {
       commit("setUsers", users);
@@ -31,7 +31,7 @@ const actions = {
   }
 };
 
-const mutations = {
+export const mutations = {
   setUsers(state, users) {
     state.all = users;
   },
